@@ -1,8 +1,8 @@
-﻿
+﻿using Dal;
 using DalApi;
 using DO;
 
-namespace Dal
+namespace DalList
 {
     internal class StudentQuestionImplementation : IStudentQuestion
     {
@@ -16,7 +16,8 @@ namespace Dal
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            
+            throw new Exception("not to delete");
         }
 
         public StudentQuestion? Read(int id)
@@ -25,9 +26,9 @@ namespace Dal
       x => x != null && x.StudentQuestionId == id);
         }
 
-        public List<StudentQuestion> ReadAll()
+        public List<StudentQuestion?> ReadAll()
         {
-            throw new NotImplementedException();
+            return new List<StudentQuestion?>(DataSource.StudentQuestions);
         }
 
         public void Update(StudentQuestion item)

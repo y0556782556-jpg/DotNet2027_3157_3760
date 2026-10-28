@@ -1,8 +1,8 @@
-﻿
+﻿using Dal;
 using DalApi;
 using DO;
 
-namespace Dal
+namespace DalList
 {
     internal class ExamImplementation : IExam
     {
@@ -18,7 +18,7 @@ namespace Dal
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            throw new Exception("not to delete");
         }
 
         public Exam? Read(int id)
@@ -28,9 +28,9 @@ namespace Dal
 
         }
 
-        public List<Exam> ReadAll()
+        public List<Exam?> ReadAll()
         {
-            throw new NotImplementedException();
+            return new List<Exam?>(DataSource.Exams);
         }
 
         public void Update(Exam item)

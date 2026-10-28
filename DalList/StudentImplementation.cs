@@ -1,8 +1,8 @@
-﻿
+﻿using Dal;
 using DalApi;
 using DO;
 
-namespace Dal
+namespace DalList
 {
     internal class StudentImplementation : IStudent
     {
@@ -16,7 +16,18 @@ namespace Dal
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            bool flag = false;
+            for(int i=0; i< DataSource.Students.Count;i++)
+            {
+                if (DataSource.Students[i]?.studentId == id)
+                {
+                    DataSource.Students.Remove(DataSource.Students[i]);
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                throw new NotExistsExceptions("The id not found");
         }
 
         public Student? Read(int id)
@@ -25,9 +36,9 @@ namespace Dal
       x => x != null && x.StudentId == id);
         }
 
-        public List<Student> ReadAll()
+        public List<Student?> ReadAll()
         {
-            throw new NotImplementedException();
+            return new List<Student?>(DataSource.Students);
         }
 
         public void Update(Student item)
