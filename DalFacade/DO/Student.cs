@@ -9,7 +9,7 @@ namespace DO
     //יישות זו מייצגת תלמיד
     //תכונותיה הם:תעודת זהות התלמיד,שם התלמיד,מזהה בחינה וציון התלמיד 
     public record Student(
-        int studentId,string studentName,int examId,int studentMark)
+        int StudentId,string StudentName,int ExamId,int StudentMark)
     {
         //public Student()
         //{

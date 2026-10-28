@@ -9,7 +9,7 @@ namespace DO
     //יישות זו מייצגת תשובה לשאלה במבחן
     //תכונותיה הם:מזהה תשובה,מזהה שאלה ותוכן התשובה
     public record Answer(
-        int answerId,int questionId,string answerContent)
+        int AnswerId,int QuestionId,string AnswerContent)
     {
         //public Answer()
         //{

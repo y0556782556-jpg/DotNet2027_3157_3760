@@ -9,7 +9,7 @@ namespace DO
     //יישות זו מייצגת שאלה במבחן
     //תכונותיה הם:מזהה שאלה,נושא השאלה,תוכן השאלה ומזהה תשובה נכונה
     public record Question(
-       int questionId, SubjectType subjectType, string questionContent,int correctAnswerId)
+       int QuestionId, SubjectType SubjectType, string QuestionContent,int CorrectAnswerId)
     {
         //public Question()
         //{
