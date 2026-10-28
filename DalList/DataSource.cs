@@ -3,15 +3,15 @@ namespace Dal
 {    // מאגר הנתונים בזיכרון:
      // רשימה סטטית לכל ישות,
      // ומחלקת Config שמייצרת מספרים מזהים רצים.
-
+    using DO;
     static internal class DataSource
     {
         //    רשימות עם כל ההפניות לישויות איברים מתאפסים, מאותחלת כרשימה ריקה .
         static internal List<Question?> Questions { get; set; } = new List<Question?>();
         static internal List<Answer?> Answers { get; set; } = new List<Answer?>();
-        static internal List<Test?> Tests { get; set; } = new List<Test?>();
-        static internal List<QuestionInTest?> QuestionInTests { get; set; } = new List<QuestionInTest?>();
-        static internal List<StudentInTest?> StudentInTests { get; set; } = new List<StudentInTest?>();
+        static internal List<Exam?> Exams { get; set; } = new List<Exam?>();
+        static internal List<Student?> Students { get; set; } = new List<Student?>();
+        static internal List<StudentQuestion?> StudentQuestions { get; set; } = new List<StudentQuestion?>();
         // מחלקת קונפיגורציה למספרים רצים.
         // לכל מזהה: קבוע התחלתי, מונה סטטי פרטי,
         // ומאפיין get בלבד שמחזיר את הערך הנוכחי ומקדם אותו באחד.
