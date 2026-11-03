@@ -1,4 +1,4 @@
-﻿
+﻿using Dal;
 using DalApi;
 using DO;
 
@@ -17,7 +17,18 @@ namespace Dal
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            bool flag = false;
+            for (int i = 0; i < DataSource.Answers.Count; i++)
+            {
+                if (DataSource.Answers[i]?.AnswerId == id)
+                {
+                    DataSource.Answers.Remove(DataSource.Answers[i]);
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                throw new NotExistsExceptions("The id not found");
         }
 
         public Answer? Read(int id)
@@ -28,7 +39,7 @@ namespace Dal
 
         public List<Answer> ReadAll()
         {
-            throw new NotImplementedException();
+            return new List<Answer?>(DataSource.Answers);
         }
 
         public void Update(Answer item)
