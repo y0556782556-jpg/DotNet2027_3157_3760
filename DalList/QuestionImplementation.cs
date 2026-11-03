@@ -20,7 +20,7 @@ namespace DalList
             bool flag = false;
             for (int i = 0; i < DataSource.Questions.Count; i++)
             {
-                if (DataSource.Questions[i]?.questionId == id)
+                if (DataSource.Questions[i]?.QuestionId == id)
                 {
                     DataSource.Questions.Remove(DataSource.Questions[i]);
                     flag = true;

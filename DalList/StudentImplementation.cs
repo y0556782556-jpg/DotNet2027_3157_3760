@@ -19,7 +19,7 @@ namespace DalList
             bool flag = false;
             for(int i=0; i< DataSource.Students.Count;i++)
             {
-                if (DataSource.Students[i]?.studentId == id)
+                if (DataSource.Students[i]?.StudentId == id)
                 {
                     DataSource.Students.Remove(DataSource.Students[i]);
                     flag = true;
