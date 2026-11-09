@@ -4,7 +4,7 @@ using DalApi;
 namespace DalList
 { 
 
-    internal class DalList : IDal
+    public class DalList : IDal
     {
         public IStudent Student => new StudentImplementation();
         public IAnswer Answer => new AnswerImplementation();
