@@ -2,6 +2,8 @@
 using DalList;
 using DO;
 using System;
+using System.Reflection;
+using Tools;
 namespace DalTest
 {
     internal class Program
@@ -32,6 +34,9 @@ namespace DalTest
                     case "5":
                         SubMenu<StudentQuestion>("StudentQuestion", s_dal.StudentQuestion, GetStudentQuestion);
                         break;
+                    case "6":
+                        LogManager.CleanOldLogs();
+                        break;
                     case "0":
                         break;
                      default:
@@ -50,7 +55,7 @@ namespace DalTest
         private static void PrintMainMenu()
         {
             Console.WriteLine("Hi,Select the desired object");
-            Console.WriteLine("For a student, press 1,\r\nFor a question, press 2,\r\nFor an answer, press 3,\r\nFor an exam, press 4,\r\nFor a question for a student, press 5,\r\nto exit, press 0");
+            Console.WriteLine("For a student, press 1,\r\nFor a question, press 2,\r\nFor an answer, press 3,\r\nFor an exam, press 4,\r\nFor a question for a student, press 5,\r\nto exit, press 0,For clean the Log,press 6");
         }
         private static int GetIntInput(string str)
         {
@@ -137,7 +142,9 @@ namespace DalTest
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message); LogManager.WriteToLog(MethodBase.GetCurrentMethod().Name,
+MethodBase.GetCurrentMethod().DeclaringType.FullName,
+$"Error:{e}");
             }
         }
         private static Student GetStudent(bool isApdate)
