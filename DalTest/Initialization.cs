@@ -187,9 +187,9 @@ namespace DalTest
             s_dal.StudentQuestion.Create(new StudentQuestion(10, 745, 5, 4, 10));
         }
 
-        public static void Initialize(IDal id)
+        public static void Initialize()
         {
-            s_dal = id;
+            s_dal = DalApi.Factory.Get; 
 
             CreateExam();
             CreateAnswer();

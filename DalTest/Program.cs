@@ -1,5 +1,4 @@
 ﻿using DalApi;
-using DalList;
 using DO;
 using System;
 using System.Reflection;
@@ -8,10 +7,10 @@ namespace DalTest
 {
     internal class Program
     {
-        public static readonly IDal s_dal = new DalList.DalList();
+        public static readonly IDal s_dal  = DalApi.Factory.Get;
         static void Main(string[] args)
         {
-            Initialization.Initialize(s_dal);
+            Initialization.Initialize();
             string selection = "start";
             while(selection!="0")
             {
@@ -142,7 +141,8 @@ namespace DalTest
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message); LogManager.WriteToLog(MethodBase.GetCurrentMethod().Name,
+                Console.WriteLine(e.Message); 
+                LogManager.WriteToLog(MethodBase.GetCurrentMethod().Name,
 MethodBase.GetCurrentMethod().DeclaringType.FullName,
 $"Error:{e}");
             }
