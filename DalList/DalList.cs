@@ -4,8 +4,18 @@ using DalApi;
 namespace DalList
 { 
 
-    public class DalList : IDal
+   internal sealed class DalList : IDal
     {
+        private static readonly DalList instance=new DalList();
+
+        public static DalList Instance
+        {
+            get { return instance; }
+        }
+        private DalList()
+        {
+
+        }
         public IStudent Student => new StudentImplementation();
         public IAnswer Answer => new AnswerImplementation();
         public IExam Exam => new ExamImplementation();
